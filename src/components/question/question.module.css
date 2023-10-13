@@ -1,0 +1,14 @@
+.label{
+    text-align: start;
+    width:33%;
+}
+.question{
+    display: flex;
+    flex-direction: column;
+    width:67%;
+    align-items: start;
+}
+.main{
+    display: flex;
+    width: 100%;
+}

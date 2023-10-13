@@ -1,0 +1,8 @@
+.checkbox{
+    display: flex;
+    flex-direction: column;
+    float: left;
+}
+.checkboxItem{
+    display: flex;
+}
