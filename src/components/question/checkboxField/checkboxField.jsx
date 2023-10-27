@@ -1,7 +1,11 @@
 import { Field } from "formik"
 import { ConfigurationConstants } from "../../..";
+import { useContext } from "react";
+import { FontSizeContext } from "../../../App";
 export const CheckBoxField = ({data, id, value}) => {
+    const {fontSize} = useContext(FontSizeContext)
     const isReadOnly = ConfigurationConstants.IsReadOnly
+    
     return (
         <div role="group" className="survey-checkbox" aria-labelledby="checkbox-group">
         {
@@ -15,7 +19,7 @@ export const CheckBoxField = ({data, id, value}) => {
                     <Field type="checkbox" className="t-checkboxedit" name={`${id}.arrayValue`}
                       value={`${dataItem.id}`} disabled={isReadOnly} />
                 </span>
-                <label key={index} className="t-label">
+                <label key={index} className="t-label" style={{fontSize:fontSize}}>
                     {dataItem.text}
                 </label>
             </div>

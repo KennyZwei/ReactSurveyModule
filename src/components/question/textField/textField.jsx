@@ -1,14 +1,13 @@
 
 import { Field } from "formik"
-import { DisabledIcon } from "../../common/disabledIcon/disabledIcon";
-import { Input } from "../../common/input/input";
+import { TextArea } from "../../common/textarea/textarea";
 
 export const TextField = ({id, maxLength}) => {
     
-    return <div className={`simple-question base-edit ts-box-sizing number-edit-align`}>
+    return <div className={`base-edit ts-box-sizing number-edit-align `}>
         <Field name={`${id}.value`} >
             {({field, form}) => (<>
-                <Input field={field} onChange={e => {
+                <TextArea field={field} onChange={e => {
                     e.preventDefault();
                     const { value } = e.target;
                     if(maxLength){

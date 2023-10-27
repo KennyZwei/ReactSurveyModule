@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import {App} from './App';
 
 
 export const ConfigurationConstants = {
@@ -141,12 +141,12 @@ class SurveyComponent extends HTMLElement {
         questionInSequence[item.questionId] = true;
       }
     })
-    debugger
     questionsSequence = questionsSequenceToArray(questionsSequence);
     const root = ReactDOM.createRoot(mountPoint);
 
-    root.render(<App surveyData={this.surveyData} isCanSaveAndSend={this.isCanSaveAndSend} close={this.close}
-      questionsSequence={questionsSequence} initialValues={this.answers} send={this.send} save={this.save} />);
+    root.render(<App surveyData={this.surveyData} initFontSize={this.initFontSize} images={this.images}
+      isCanSaveAndSend={this.isCanSaveAndSend} close={this.close} onlyShow={this.onlyShow} saveFontSize={this.saveFontSize}
+      questionsSequence={questionsSequence} initialValues={this.answers} send={this.send} save={this.save} fromEmployee={this.fromEmployee} />);
   }
 }
 customElements.define('survey-component', SurveyComponent);

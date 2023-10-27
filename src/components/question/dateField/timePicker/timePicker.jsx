@@ -9,7 +9,11 @@ export const TimePicker = ({setTimeValue, id, styleTop}) => {
     const [timePickerVisible, setTimePickerVisible] = useState(false);
     const containerRef = useRef(null);
     const isReadOnly = ConfigurationConstants.IsReadOnly
-
+    const beforeSetVisible = (newVisible) => {
+        if(!isReadOnly){
+          setTimePickerVisible(newVisible);
+        }
+    }
     useEffect(() => {
         function handleClickOutside(e) {
           if (containerRef.current && !containerRef.current.contains(e.target)) {
@@ -33,16 +37,16 @@ export const TimePicker = ({setTimeValue, id, styleTop}) => {
         }) => (<>
         <div ref={containerRef} className="listview listview-scroll" style={{opacity: timePickerVisible ? "1" : "0",
                  display:timePickerVisible ? "" : "none", top:`${styleTop}px`}}>
-                    <TimePickerTimes setVisible={setTimePickerVisible}  setTime={setTimeValue(setFieldValue, values)} />
+                    <TimePickerTimes setVisible={beforeSetVisible}  setTime={setTimeValue(setFieldValue, values)} />
                 </div>
         <div 
          className="survey-date-timecontrol base-edit ts-box-sizing base-edit-with-right-icon time-edit datetime-timecontrol">
                 
                 <Input field={field} onChange={(e) => onChange(setFieldValue, values, e)}
-                  value={field.value && dateToTimeString(field.value)} onClick={() => setTimePickerVisible(true)}/>
+                  value={field.value && dateToTimeString(field.value)} onClick={() => beforeSetVisible(true)}/>
                 <div style={{display:isReadOnly && "none"}}
                     className='base-edit-right-icon-wrapper'
-                    onClick={() => setTimePickerVisible(true)}>
+                    onClick={() => beforeSetVisible(true)}>
 
                     <div className="base-edit-right-icon combobox-edit-right-icon"></div>
                 </div>

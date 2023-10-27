@@ -1,10 +1,16 @@
 
 const root = document.getElementById("root");
 const surveyComponent = document.createElement("survey-component");
+surveyComponent.initFontSize = 14;
+surveyComponent.images = {
+    fontSizeDecreaseSrc:"test",
+    fontSizeIncreaseSrc:"test"
+}
 surveyComponent.shortDayNames = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
 surveyComponent.monthNames = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
 surveyComponent.surveyData = {
     name: "Satisfaction survey",
+    
     id: 1,
     answers:{},
       "questions": {
@@ -26,23 +32,32 @@ surveyComponent.surveyData = {
               "title": "2",
               "choices": [],
               "visibleRules": [],
-              "type": "6b033446-1717-4867-93d0-57ff1fe44bc3",
+              "type": "93fb1c82-c5f6-4afc-a18f-8cc55e3d7c64",
               "note": "",
               "number": 2
           },
-          
+          "1abf596f-cda3-4942-a5a0-92ec3fe9d698": {
+            "title": "22",
+            "choices": [],
+            "visibleRules": [],
+            "type": "6b033446-1717-4867-93d0-57ff1fe44bc3",
+            "note": "",
+            "number": 2
+        },
           "496beaea-8f2c-440e-8c2f-6ed652b5e0e1": {
               "title": "3",
               "choices": [
                 {
                   "text": "После дата и время 3",
                   "id": "f1e5767f-0731-446b-b39c-7ca8f2f3a488",
-                  "nextQuestion": "396beaea-8f2c-440e-8c2f-6ed652b5e0e1"
+                  "nextQuestion": "396beaea-8f2c-440e-8c2f-6ed652b5e0e1",
+                  "weight":1
               },
               {
                 "text": "После дата и время 3",
                 "id": "b2a5767f-0731-446b-b39c-7ca8f2f3a488",
-                "nextQuestion": "00000000-0000-0000-0000-000000000000"
+                "nextQuestion": "00000000-0000-0000-0000-000000000000",
+                "weight":2
             }
               ],
               "visibleRules": [],
